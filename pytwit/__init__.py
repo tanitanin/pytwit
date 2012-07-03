@@ -1,14 +1,9 @@
 # encoding=utf-8
 
 # TwitterAPI
-__version__ = '0.5'
-__author__ = 'tanitanin'
-
 
 from urllib import urlencode
 from oauth2 import Client, Token, Consumer
-from xml.dom import minidom
-from xml.etree import ElementTree as ET
 
 # import APIs
 from timeline import TimelineAPI
