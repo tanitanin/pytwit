@@ -1,6 +1,6 @@
 # encoding=utf-8
 
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(name="Pytwit",
       version="0.1",
@@ -8,5 +8,5 @@ setup(name="Pytwit",
       author="tanitanin",
       author_email="tanitanin@tanitanin.net",
       url="https://github.com/tanitanin/pytwit",
-      packages=["distutils","distutils.command","oauth2","urllib2"],
+      packages=find_packages(),
       )
