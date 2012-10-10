@@ -16,8 +16,8 @@ class AccountAPI:
   ''' each API method '''
   def rate_limit_status(self,include_entities=None,skip_status=None):
     url = self.api+'rate_limit_status.json'
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st, res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def verify_credentials(self,include_entities=None,skip_status=None):
     option={}
@@ -26,13 +26,13 @@ class AccountAPI:
     if skip_status:
       option['skip_status'] = skip_status
     url = self.api+'verify_credentials.json'+urlencode(option)
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def end_session(self):
     url = self.api+'end_session.json'
-    res = self.client.request(url,'POST',urlencode({}))
-    return json.loads(res)
+    st,res = self.client.request(url,'POST',urlencode({}))
+    return st,json.loads(res)
   
   def update_profile(self,name=None,url=None,location=None,description=None,include_entities=None,skip_status=None):
     option={}
@@ -45,8 +45,8 @@ class AccountAPI:
     if skip_status:
       option['skip_status'] = skip_status
     url = self.api+'update_profile.json'
-    res = self.client.request(url,'POST',urlencode(option))
-    return json.loads(res)
+    st,res = self.client.request(url,'POST',urlencode(option))
+    return st,json.loads(res)
   
   def update_profile_colors(self, profile_background_color=None,
                             profile_link_color=None,
@@ -70,8 +70,8 @@ class AccountAPI:
     if skip_status:
       option['skip_status'] = skip_status
     url = self.api+'update_profile_colors.json'
-    res = self.client.request(url,'POST',urlencode(option))
-    return json.loads(res)
+    st,res = self.client.request(url,'POST',urlencode(option))
+    return st,json.loads(res)
   
   def update_profile_image(self,image,include_entities=None,skip_status=None):
     option = {'image':image}
@@ -80,8 +80,8 @@ class AccountAPI:
     if skip_status:
       option['skip_status'] = skip_status
     url = self.api+'update_profile_image.json'
-    res = self.client.request(url,'POST',urlencode(option))
-    return json.loads(res)
+    st,res = self.client.request(url,'POST',urlencode(option))
+    return st,json.loads(res)
   
   def update_profile_background_image(self,image=None,tile=None,include_entities=None,skip_status=None):
     option = {}
@@ -94,18 +94,18 @@ class AccountAPI:
     if skip_status:
       option['skip_status'] = skip_status
     url = self.api+'update_profile_background_image.json'
-    res = self.client.request(url,'POST',urlencode(option))
-    return json.loads(res)
+    st,res = self.client.request(url,'POST',urlencode(option))
+    return st,json.loads(res)
   
   def totals(self):
     url = self.api+'totals.json'
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def get_settings(self):
     url = self.api+'settings.json'
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
     
   def post_settings(self,trend_location_woeid=None,sleep_time_enable=None,start_sleep_time=None,end_sleep_time=None,timezone=None,lang=None):
     option = {}
@@ -122,6 +122,6 @@ class AccountAPI:
     if lang:
       option['lang'] = lang
     url = self.api+'settings.json'
-    res = self.client.request(url,'POST',urlencode(option))
-    return json.loads(res)
+    st,res = self.client.request(url,'POST',urlencode(option))
+    return st,json.loads(res)
 

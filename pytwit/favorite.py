@@ -21,16 +21,16 @@ class FavoriteAPI:
     if user_id: option['user_id'] = user_id
     if screen_name: option['screen_name'] = screen_name
     url = self.api+'favorites.json?' + urlencode(option)
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def create(self,id,include_entities=None):
     url = self.api+'favorites/create/'+id+'.json'
-    res = self.client.request(url,'POST',None)
-    return json.loads(res)
+    st,res = self.client.request(url,'POST',None)
+    return st,json.loads(res)
   
   def destroy(self,id):
     url = self.api+'favorites/destroy/'+id+'.json'
-    res = self.client.request(url,'POST',None)
-    return json.loads(res)
+    st,res = self.client.request(url,'POST',None)
+    return st,json.loads(res)
   
