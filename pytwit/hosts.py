@@ -3,7 +3,6 @@
 # constant params
 API_HOST = 'http://api.twitter.com/'
 API_VERSION = '1'
-API_URL = API_HOST + API_VERSION
 
 STREAM_HOST = 'http://stream.twitter.com/'
 STREAM_VERSION = '2'
