@@ -4,12 +4,14 @@ from urllib import urlencode
 from oauth2 import Client
 import json
 
+import hosts
+
 class DirectMessageAPI:
   
   ''' field '''
   client = None
-  api0 = "http://api.twitter.com/1/"
-  api = 'http://api.twitter.com/1/direct_messages/'
+  api_base_url = hosts.API_HOST + '1.1' + '/'
+  api_url = hosts.API_HOST + '1.1' + '/direct_messages/'
   
   ''' constractor '''
   def __init__(self, client):
@@ -24,7 +26,7 @@ class DirectMessageAPI:
     if page: option['page'] = page
     if include_enitities: option['include_enitities'] = include_enitities
     if skip_status: option['skip_status'] = skip_status
-    url = self.api0+'direct_message.json?'+urlencode(option)
+    url = self.api_base_url+'direct_message.json?'+urlencode(option)
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
@@ -36,7 +38,7 @@ class DirectMessageAPI:
     if page: option['page'] = page
     if include_enitities: option['include_enitities'] = include_enitities
     if skip_status: option['skip_status'] = skip_status
-    url = self.api+'sent.json?'+urlencode(option)
+    url = self.api_url+'sent.json?'+urlencode(option)
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
@@ -45,17 +47,18 @@ class DirectMessageAPI:
     option = {'text':text}
     if user_id: option['user_id'] = user_id
     if screen_name: option['screen_name'] = screen_name
-    url = self.api+'new.json'
+    url = self.api_url+'new.json'
     st,res = self.client.request(url,'POST',urlencode(option))
     return st,json.loads(res)
   
   def show(self,id):
-    url = self.api+'show/'+id+'.json'
+    url = self.api_url+'show.json?id='+str(id)
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
   def destroy(self,id,include_enitities=None):
-    url = self.api+'destroy/'+id+'.json'
+    url = self.api_url+'destroy.json?id=' + str(id)
+    if include_enitities: url += '&include_enitities=' + include_enitities
     st,res = self.client.request(url,'DELETE',urlencode(option))
     return st,json.loads(res)
   
