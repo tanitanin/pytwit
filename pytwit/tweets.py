@@ -5,14 +5,14 @@ from oauth2 import Client
 from urlparse import urlunparse
 import json
 
+import hosts
 from error import TwitterError
 
 class TweetsAPI:
   
   ''' field '''
   client = None
-  import hosts
-  api = hosts.API_HOST+"1.1/statuses/"
+  api = hosts.API_HOST+"1.1"+"/statuses/"
   
   ''' constractor '''
   def __init__(self, client):
@@ -33,7 +33,7 @@ class TweetsAPI:
     try:
       st, res = self.client.request(url,'POST',urlencode(option))
     except:
-      raise TwitterError
+      raise Exception
     return st, json.loads(res)
   
   # update with media
