@@ -17,13 +17,13 @@ class UserAPI:
   ''' each API method '''
   def friends(self,option):
     url = api0+'friends.json'+urlencode(option)
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def followers(self,option):
     url = api0+'followers.json'+urlencode(option)
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def show(self,option):
     url = api+'show'
@@ -31,26 +31,26 @@ class UserAPI:
       url += '.json?'+urlencode(option)
     else:
       url += '/'+option['id']+'.json'
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def lookup(self,option):
     url = api+'lookup.json'+urlencode(option)
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def search(self,option):
     url = api+'search.json'+urlencode(option)
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def suggestions(self,option):
     url = api+'suggestions.json'+urlencode(option)
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def suggestions_category(self,option):
     url = api+'suggestions/category.json'+urlencode(option)
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   

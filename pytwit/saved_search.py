@@ -18,21 +18,21 @@ class SavedSearchAPI:
   ''' each API method '''
   def saved_searches(self):
     url = self.api0 + 'saved_searches.json'
-    res = self.client.request(res,'GET')
-    return json.loads(res)
+    st,res = self.client.request(res,'GET')
+    return st,json.loads(res)
   
   def create(self, option):
     url = self.api + 'create.json'
-    res = self.client.request(res,'POST',urlencode(option))
-    return json.loads(res)
+    st,res = self.client.request(res,'POST',urlencode(option))
+    return st,json.loads(res)
   
   def show(self, id):
     url = self.api + 'show/'+id+'.json'
-    res = self.client.request(res,'GET')
-    return json.loads(res)
+    st,res = self.client.request(res,'GET')
+    return st,json.loads(res)
   
   def destroy(self, id):
     url = self.api + 'destroy/'+id+'.json'
-    res = self.client.request(res,'DELETE')
-    return json.loads(res)
+    st,res = self.client.request(res,'DELETE')
+    return st,json.loads(res)
   

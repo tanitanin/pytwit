@@ -25,8 +25,8 @@ class DirectMessageAPI:
     if include_enitities: option['include_enitities'] = include_enitities
     if skip_status: option['skip_status'] = skip_status
     url = self.api0+'direct_message.json?'+urlencode(option)
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def sent(self,since_id=None,max_id=None,count=None,page=None,include_enitities=None,skip_status=None):
     option = {}
@@ -37,8 +37,8 @@ class DirectMessageAPI:
     if include_enitities: option['include_enitities'] = include_enitities
     if skip_status: option['skip_status'] = skip_status
     url = self.api+'sent.json?'+urlencode(option)
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def new(self,text,user_id=None,screen_name=None):
     if not user_id and not screen_name: raise Exception
@@ -46,16 +46,16 @@ class DirectMessageAPI:
     if user_id: option['user_id'] = user_id
     if screen_name: option['screen_name'] = screen_name
     url = self.api+'new.json'
-    res = self.client.request(url,'POST',urlencode(option))
-    return json.loads(res)
+    st,res = self.client.request(url,'POST',urlencode(option))
+    return st,json.loads(res)
   
   def show(self,id):
     url = self.api+'show/'+id+'.json'
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def destroy(self,id,include_enitities=None):
     url = self.api+'destroy/'+id+'.json'
-    res = self.client.request(url,'DELETE',urlencode(option))
-    return json.loads(res)
+    st,res = self.client.request(url,'DELETE',urlencode(option))
+    return st,json.loads(res)
   

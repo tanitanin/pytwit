@@ -21,6 +21,6 @@ class SpamAPI:
     if screen_name: option['screen_name'] = screen_name
     if user_id: option['user_id'] = user_id
     url = self.api+'report_spam.json'
-    res = self.client.request(url,'POST',urlencode(option))
-    return json.loads(res)
+    st,res = self.client.request(url,'POST',urlencode(option))
+    return st,json.loads(res)
   

@@ -23,8 +23,8 @@ class FriendshipAPI:
     if target_id: option['target_id'] = target_id
     if target_screen_name: option['target_screen_name'] = target_screen_name
     url = self.api+'show.json?'+urlencode(option)
-    res = self.client.request(url,'GET')
-    return json.loads(res)
+    st,res = self.client.request(url,'GET')
+    return st,json.loads(res)
   
   def create(self,user_id=None,screen_name=None,follow=None):
     if not user_id and not screen_name: raise Exception
@@ -56,7 +56,7 @@ class FriendshipAPI:
     if screen_name_b: option['screen_name_b'] = screen_name_b
     url = self.api+'exists.json'+urlencode(option)
     st,res = self.client.request(url,'GET')
-    return st,res
+    return st,json.loads(res)
   
   def update(self,user_id=None,screen_name=None,device=None,retweets=None):
     if not user_id and not screen_name: raise Exception

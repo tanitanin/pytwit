@@ -24,7 +24,7 @@ class SocialgraphAPI:
     if stringify_ids: option['stringify_ids']
     url = api_frinds + 'ids.json?' + urlencode(option)
     code,res = self.client.request(url,'GET',urlencode(option))
-    return json.loads(res)
+    return code,json.loads(res)
   
   def followers_ids(self,user_id=None,screen_name=None,cursor=None,stringify_ids=None):
     if not user_id and not screen_name: raise Exception
@@ -35,5 +35,5 @@ class SocialgraphAPI:
     if stringify_ids: option['stringify_ids']
     url = api_followers + 'ids.json?' + urlencode(option)
     code,res = self.client.request(url,'GET',urlencode(option))
-    return json.loads(res)
+    return code,json.loads(res)
   

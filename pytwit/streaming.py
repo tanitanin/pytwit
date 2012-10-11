@@ -18,11 +18,11 @@ class StreamingAPI:
   ''' each API method '''
   def sample(self,option):
     url = self.api + 'sample.json?' + urlencode(option)
-    res= self.client.request(url, 'GET')
-    return json.loads(res)
+    st,res= self.client.request(url, 'GET')
+    return st,json.loads(res)
   
   def filter(self,option):
     url = self.api + 'filter.json'
-    res = self.client.request(url, 'POST', urlencode(option))
-    return json.loads(res)
+    st,res = self.client.request(url, 'POST', urlencode(option))
+    return st,json.loads(res)
   
