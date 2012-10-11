@@ -7,7 +7,7 @@ import json
 
 from error import TwitterError
 
-class StatusAPI:
+class TweetsAPI:
   
   ''' field '''
   client = None
@@ -33,7 +33,7 @@ class StatusAPI:
     try:
       st, res = self.client.request(url,'POST',urlencode(option))
     except:
-      raise Exception
+      raise TwitterError
     return st, json.loads(res)
   
   # update with media

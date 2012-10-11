@@ -7,6 +7,7 @@ from oauth2 import Client, Token, Consumer
 
 # import APIs
 from timeline import TimelineAPI
+from tweets import TweetsAPI
 from status import StatusAPI
 from user import UserAPI
 from direct_message import DirectMessageAPI
@@ -34,6 +35,7 @@ class TwitterAPI:
   ''' API initialize '''
   def initAPI(self, client):
     self.timeline = TimelineAPI(client)
+    self.tweets = TweetsAPI(client)
     self.status = StatusAPI(client)
     self.user = UserAPI(client)
     self.dm = DirectMessageAPI(client)

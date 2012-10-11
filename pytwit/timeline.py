@@ -9,8 +9,10 @@ class TimelineAPI:
   
   ''' field '''
   client = None
-  api = "http://api.twitter.com/1/statuses/"
-
+  
+  import hosts
+  api = hosts.API_HOST+"1.1"+"/statuses/"
+  
   ''' constractor '''
   def __init__(self, client):
     self.client = client
