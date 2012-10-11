@@ -58,5 +58,17 @@ class StreamingAPI:
     if stall_warnings: option['stall_warnings'] = stall_warnings
     url = hosts.USERSTREAM_HOST + '1.1' + '/user.json?' + urlencode(option)
     st,res = self.client.request(url, 'GET')
+    return st,json.loads(res)
+  
+  def site(self,replies=None,w=None,follow=None,
+             delimited=None,stall_warnings=None):
+    option = {}
+    if w: option['with'] = w
+    if replies: option['replies'] = replies
+    if follow: option['follow'] = follow
+    if delimited: option['delimited'] = delimited
+    if stall_warnings: option['stall_warnings'] = stall_warnings
+    url = hosts.USERSTREAM_HOST + '1.1' + '/site.json?' + urlencode(option)
+    st,res = self.client.request(url, 'GET')
   
 
