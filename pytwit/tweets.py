@@ -96,9 +96,9 @@ class TweetsAPI:
     if count: option['count'] = count
     if trim_user: option['trim_user'] = trim_user
     if include_entities: option['include_entities'] = include_entities
-    url = self.api + 'retweet/' + str(id) + ".json?" + urlencode(option)
+    url = self.api + 'retweets/' + str(id) + ".json"
     try:
-      st, res = self.client.request(url,'GET',urlencode(option))
+      st, res = self.client.request(url,'POST',urlencode(option))
     except:
       raise Exception
     return st, json.loads(res)
@@ -114,6 +114,7 @@ class TweetsAPI:
       raise Exception
     return st, json.loads(res)
   
+  # v1.1 not supported
   def retweeted_by_ids(self,id,count=None,page=None,stringify_ids=None):
     option = {}
     if count: option['count'] = count
