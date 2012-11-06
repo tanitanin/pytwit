@@ -33,30 +33,36 @@ class SearchAPI:
     if callback: option['callback'] = callback
     url = hosts.API_HOST + '1.1' + '/search/' + 'tweets.json'
     url += '?' + urlencode(option)
+    print url
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
   ''' old API method '''
+  #v1.1 not supported
   def search(self, option):
     url = self.s_api + 'search.json?' + urlencode(option)
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
+  #v1.1 not supported
   def trends(self, option):
     url = self.s_api + 'trends.json?' + urlencode(option)
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
+  #v1.1 not supported
   def current_trends(self, option):
     url = self.s_api + 'trends/current.json?' + urlencode(option)
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
+  #v1.1 not supported
   def daily_trends(self, option):
     url = self.s_api + 'trends/daily.json?' + urlencode(option)
     st,res = self.client.request(res,'GET')
     return st,json.loads(res)
   
+  #v1.1 not supported
   def weekly_trends(self, option):
     url = self.s_api + 'trends/weekly.json?' + urlencode(option)
     st,res = self.client.request(res,'GET')
