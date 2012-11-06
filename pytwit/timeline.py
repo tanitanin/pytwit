@@ -56,7 +56,8 @@ class TimelineAPI:
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
-  def mentions(self,count=None,since_id=None,max_id=None,page=None,
+  def mentions_timeline(self,count=None,since_id=None,max_id=None,
+               page=None,
                trim_user=None,include_rts=None,include_entities=None,
                exclude_replies=None,contributor_details=None):
     option = {}
@@ -69,10 +70,11 @@ class TimelineAPI:
     if include_entities: option['include_entities'] = include_entities
     if exclude_replies: option['exclude_replies'] = exclude_replies
     if contributor_details: option['contributor_details'] = contributor_details
-    url = self.api_url + 'mentions.json?' + urlencode(option)
+    url = self.api_url + 'mentions_timeline.json?' + urlencode(option)
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
+  # v1.1 not supported
   def retweeted_by_me(self,count=None,since_id=None,max_id=None,page=None,
                       trim_user=None,include_entities=None):
     option = {}
@@ -86,6 +88,7 @@ class TimelineAPI:
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
+  # v1.1 not supported
   def retweeted_to_me(self,count=None,since_id=None,max_id=None,page=None,
                       trim_user=None,include_entities=None):
     option = {}
@@ -112,6 +115,7 @@ class TimelineAPI:
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
+  # v1.1 not supported
   def retweeted_by_user(self,user_id=None,screen_name=None,count=None,
                         since_id=None,max_id=None,page=None,trim_user=None,
                         include_entities=None):
@@ -129,6 +133,7 @@ class TimelineAPI:
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
+  # v1.1 not supported
   def retweeted_to_user(self,user_id=None,screen_name=None,count=None,
                         since_id=None,max_id=None,page=None,trim_user=None,
                         include_entities=None):
