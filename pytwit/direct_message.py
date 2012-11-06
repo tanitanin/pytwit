@@ -18,7 +18,8 @@ class DirectMessageAPI:
     self.client = client
   
   ''' each API method '''
-  def direct_messages(self,since_id=None,max_id=None,count=None,page=None,include_enitities=None,skip_status=None):
+  def direct_messages(self,since_id=None,max_id=None,count=None,
+                      page=None,include_enitities=None,skip_status=None):
     option = {}
     if since_id: option['since_id'] = since_id
     if max_id: option['max_id'] = max_id
@@ -26,7 +27,7 @@ class DirectMessageAPI:
     if page: option['page'] = page
     if include_enitities: option['include_enitities'] = include_enitities
     if skip_status: option['skip_status'] = skip_status
-    url = self.api_base_url+'direct_message.json?'+urlencode(option)
+    url = self.api_base_url+'direct_messages.json?'+urlencode(option)
     st,res = self.client.request(url,'GET')
     return st,json.loads(res)
   
@@ -57,8 +58,9 @@ class DirectMessageAPI:
     return st,json.loads(res)
   
   def destroy(self,id,include_enitities=None):
-    url = self.api_url+'destroy.json?id=' + str(id)
-    if include_enitities: url += '&include_enitities=' + include_enitities
-    st,res = self.client.request(url,'DELETE',urlencode(option))
+    option = {'id':id}
+    if include_enitities: option['include_enitities'] = include_enitities
+    url = self.api_url+'destroy.json'
+    st,res = self.client.request(url,'POST',urlencode(option))
     return st,json.loads(res)
   
