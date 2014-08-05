@@ -8,8 +8,9 @@ class FriendshipAPI:
   
   ''' field '''
   client = None
-  api0 = "http://api.twitter.com/1/"
-  api = 'http://api.twitter.com/1/friendships/'
+  import hosts
+  api0 = hosts.API_HOST
+  api = hosts.API_HOST + "friendships/"
   
   ''' constractor '''
   def __init__(self, client):

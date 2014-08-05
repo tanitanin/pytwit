@@ -8,8 +8,9 @@ class ListAPI:
   
   ''' field '''
   client = None
-  api = "http://api.twitter.com/1/"
-  lapi = "http://api.twitter.com/1/lists/"
+  import hosts
+  api = hosts.API_HOST
+  lapi = hosts.API_HOST + "/lists/"
   
   ''' constractor '''
   def __init__(self, client):

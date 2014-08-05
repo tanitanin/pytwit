@@ -1,8 +1,8 @@
 # encoding=utf-8
 
 # constant params
-API_HOST = 'http://api.twitter.com/'
-API_VERSION = '1'
+API_VERSION = '1.1'
+API_HOST = 'http://api.twitter.com/' + API_VERSION
 
 STREAM_HOST = 'http://stream.twitter.com/'
 STREAM_VERSION = '2'

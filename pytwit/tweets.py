@@ -12,7 +12,7 @@ class TweetsAPI:
   
   ''' field '''
   client = None
-  api = hosts.API_HOST+"1.1"+"/statuses/"
+  api = hosts.API_HOST+"/statuses/"
   
   ''' constractor '''
   def __init__(self, client):

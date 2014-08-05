@@ -8,8 +8,8 @@ class SavedSearchAPI:
   
   ''' field '''
   client = None
-  api0 = 'http://api.twitter.com/1/'
-  api  = 'http://api.twitter.com/1/saved_searches/'
+  api0 = hosts.API_HOST
+  api  = hosts.API_HOST+'/saved_searches/'
   
   ''' constractor '''
   def __init__(self, client):

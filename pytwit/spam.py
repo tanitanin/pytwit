@@ -8,7 +8,8 @@ class SpamAPI:
   
   ''' field '''
   client = None
-  api = 'http://api.twitter.com/1/'
+  import hosts
+  api = hosts.API_HOST
   
   ''' constractor '''
   def __init__(self, client):

@@ -7,7 +7,8 @@ import json
 class AccountAPI:
   
   ''' field '''
-  api = 'http://api.twitter.com/1/account/'
+  import hosts
+  api = hosts.API_HOST + '/account/'
   
   ''' constractor '''
   def __init__(self, client):

@@ -4,12 +4,14 @@ from oauth2 import Client
 from urllib import urlencode
 import json
 
+import hosts
+
 class UserAPI:
   
   ''' field '''
   client = None
-  api0 = 'http://api.twitter.com/1/statuses/'
-  api = "http://api.twitter.com/1/user/"
+  api0 = hosts.API_HOST+"/statuses/"
+  api = hosts.API_HOST+"/user/"
   ''' constractor '''
   def __init__(self, client):
     self.client = client

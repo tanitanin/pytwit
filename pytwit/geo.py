@@ -9,7 +9,8 @@ class GeoAPI:
   
   ''' field '''
   client = None
-  api = "http://api.twitter.com/1/geo/"
+  import hosts
+  api = hosts.API_HOST + "/geo/"
 
   ''' constractor '''
   def __init__(self, client):

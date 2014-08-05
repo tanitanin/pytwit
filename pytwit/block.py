@@ -8,7 +8,8 @@ class BlockAPI:
   
   ''' field '''
   client = None
-  api = 'http://api.twitter.com/1/blocks/'
+  import hosts
+  api = hosts.API_HOST+'/blocks/'
   
   ''' constractor '''
   def __init__(self, client):

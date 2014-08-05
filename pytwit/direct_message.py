@@ -10,8 +10,8 @@ class DirectMessageAPI:
   
   ''' field '''
   client = None
-  api_base_url = hosts.API_HOST + '1.1' + '/'
-  api_url = hosts.API_HOST + '1.1' + '/direct_messages/'
+  api_base_url = hosts.API_HOST + '/'
+  api_url = hosts.API_HOST + '/direct_messages/'
   
   ''' constractor '''
   def __init__(self, client):

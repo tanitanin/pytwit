@@ -11,7 +11,7 @@ class TimelineAPI:
   client = None
   
   import hosts
-  api_url = hosts.API_HOST+"1.1"+"/statuses/"
+  api_url = hosts.API_HOST+"/statuses/"
   
   ''' constractor '''
   def __init__(self, client):

@@ -8,8 +8,9 @@ class SocialgraphAPI:
   
   ''' field '''
   client = None
-  api_frinds = 'http://api.twitter.com/1/friends/'
-  api_followers = "http://api.twitter.com/1/followers/"
+  import hosts
+  api_frinds = hosts.API_HOST+'/friends/'
+  api_followers = hosts.API_HOST+"/followers/"
   ''' constractor '''
   def __init__(self, client):
     self.client = client
